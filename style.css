@@ -4,14 +4,13 @@ body {
     color: #333;
     margin: 0;
     padding: 1rem;
-    font-size: 18px; /* ✅ AUMENTA el tamaño de fuente global */
-    text-align: left; /* ✅ Alineación general a la izquierda */
+    font-size: 1.1rem; /* 👈 Aumentamos tamaño base */
 }
 
 h1 {
     text-align: center;
-    font-size: 2.5rem; /* ✅ Más grande */
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem; /* más grande */
+    margin-bottom: 1rem;
 }
 
 .año {
@@ -28,21 +27,18 @@ h1 {
     border: 2px solid #f06292;
     border-radius: 10px;
     background-color: #fff;
-    text-align: left; /* ✅ Para que no se centre dentro de cada materia */
 }
 
 .materia h3 {
     margin-top: 0;
-    font-size: 1.3rem; /* ✅ Más grande */
+    font-size: 1.3rem; /* más grande */
 }
 
 .notas {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column; /* 👈 Alinea en columnas para que quede todo a la izquierda */
+    gap: 0.8rem;
     align-items: flex-start;
-    margin-top: 0.5rem;
-    justify-content: flex-start; /* ✅ Alineado a la izquierda */
 }
 
 .notas label {
@@ -51,16 +47,9 @@ h1 {
     align-items: flex-start;
     gap: 0.2rem;
     font-weight: bold;
-    min-width: 150px;
+    font-size: 1rem; /* más grande */
+    min-width: 140px;
     text-align: left;
-    font-size: 1.1rem; /* ✅ Más grande */
-}
-
-.notas input,
-.notas select {
-    font-size: 1rem; /* ✅ Inputs y selects más grandes */
-    padding: 0.3rem;
-    width: 100%;
 }
 
 .tp-grid {
@@ -68,11 +57,18 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 0.5rem;
     margin-top: 0.5rem;
+    width: 100%;
 }
 
-.tp-grid input {
-    font-size: 1rem;
-    padding: 0.3rem;
+.tp-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.tp-bloque button {
+    align-self: flex-start; /* que el botón esté a la izquierda */
 }
 
 .fila-final,
@@ -83,7 +79,6 @@ h1 {
     align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
-    margin-top: 0.5rem;
 }
 
 button {
