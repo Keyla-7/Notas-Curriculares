@@ -57,6 +57,21 @@ h1 {
     margin-top: 0.5rem;
 }
 
+.fila-final {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.tp-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
 button {
     background-color: #f48fb1;
     border: none;
