@@ -147,28 +147,35 @@ function guardarNotas() {
 
 function cargarNotas() {
     const datos = JSON.parse(localStorage.getItem("notasEnfermeria") || "{}");
+
+    // Cargar inputs
     document.querySelectorAll("input").forEach(input => {
         const valor = datos[input.dataset.id + "-" + input.dataset.type];
         if (valor !== undefined) input.value = valor;
+    });
+
+    // Cargar selects (como "promociona")
     document.querySelectorAll("select").forEach(select => {
-    const valor = datos[select.dataset.id + "-" + select.dataset.type];
-    if (valor !== undefined) {
-        select.value = valor;
-        if (select.dataset.type === "promociona") {
-            marcarPromocion(select.dataset.id);
-        }
-    }
-});
-        
+        const valor = datos[select.dataset.id + "-" + select.dataset.type];
+        if (valor !== undefined) {
+            select.value = valor;
+            if (select.dataset.type === "promociona") {
+                marcarPromocion(select.dataset.id);
+            }
+        }
+    });
+
+    // Cargar trabajos prácticos
     Object.keys(datos).forEach(key => {
-    if (key.endsWith("-tp")) {
-        const id = key.replace("-tp", "");
-        datos[key].forEach(valor => {
-            agregarTP(id, valor);
-        });
-    }
-});
+        if (key.endsWith("-tp")) {
+            const id = key.replace("-tp", "");
+            datos[key].forEach(valor => {
+                agregarTP(id, valor);
+            });
+        }
+    });
 }
+
 
 window.addEventListener("load", cargarNotas);
           
