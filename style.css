@@ -33,21 +33,22 @@ h1 {
 }
 
 .notas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    margin-top: 0.5rem;
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+    justify-content: flex-start; /* alineado a la izquierda */
 }
 
 .notas label {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.2rem;
-    font-weight: bold;
-    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: left;
 }
 
 .tp-grid {
@@ -58,18 +59,22 @@ h1 {
 }
 
 .fila-final {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+    justify-content: flex-start; /* alineado a la izquierda */
+    text-align: left;
 }
 
 .tp-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    justify-content: flex-start; /* alineado a la izquierda */
+    text-align: left;
 }
 
 button {
@@ -85,20 +90,4 @@ button {
 
 button:hover {
     background-color: #ec407a;
-}
-
-/* 🎯 NUEVO: Alineación izquierda de notas y TP */
-.materia .notas {
-    justify-content: flex-start;
-}
-
-.materia .notas label {
-    align-items: flex-start;
-    text-align: left;
-}
-
-.fila-final,
-.tp-actions {
-    justify-content: flex-start;
-    text-align: left;
 }
