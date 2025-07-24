@@ -51,7 +51,16 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
             <div class="notas">
                 <label>Parcial 1: <input type="number" min="0" max="100" data-type="parcial1" data-id="${id}"></label>
                 <label>Parcial 2: <input type="number" min="0" max="100" data-type="parcial2" data-id="${id}"></label>
-                <label>Final: <input type="number" min="0" max="100" data-type="final" data-id="${id}"></label>
+                <label>Final: 
+  <input type="number" min="0" max="100" data-type="final" data-id="${id}" id="final-${id}">
+</label>
+<label>Promociona:
+  <select data-type="promociona" data-id="${id}" id="promo-${id}" onchange="marcarPromocion('${id}')">
+    <option value="">-</option>
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+  </select>
+</label>
                 <br>
                 <strong>Trabajos Prácticos:</strong>
                 <div class="tp-grid" id="tp-grid-${id}"></div>
@@ -94,6 +103,18 @@ function agregarTP(id, valorInicial = "") {
         guardarNotas();
         calcularPromedioTP(id);
     });
+    function marcarPromocion(id) {
+    const select = document.getElementById(`promo-${id}`);
+    const inputFinal = document.getElementById(`final-${id}`);
+    if (select.value === "si") {
+        inputFinal.style.textDecoration = "line-through";
+        inputFinal.disabled = true;
+    } else {
+        inputFinal.style.textDecoration = "none";
+        inputFinal.disabled = false;
+    }
+    guardarNotas();
+    }
 
     contenedorTP.appendChild(input);
     contenedorTP.appendChild(btnEliminar);
@@ -126,6 +147,9 @@ function cargarNotas() {
     document.querySelectorAll("input").forEach(input => {
         const valor = datos[input.dataset.id + "-" + input.dataset.type];
         if (valor !== undefined) input.value = valor;
+        if (input.dataset.type === "promociona") {
+    marcarPromocion(input.dataset.id);
+        }
     });
     Object.keys(datos).forEach(key => {
     if (key.endsWith("-tp")) {
