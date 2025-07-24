@@ -60,8 +60,7 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
     <option value="si">Sí</option>
     <option value="no">No</option
       </select>
-     </label
-    
+</label>
                 <br>
                 <strong>Trabajos Prácticos:</strong>
                 <div class="tp-grid" id="tp-grid-${id}"></div>
