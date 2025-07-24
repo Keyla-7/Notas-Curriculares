@@ -1,60 +1,119 @@
 body {
-    background-color: #ffc0cb;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 1rem;
+    background-color: #ffc0cb;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 1rem;
 }
 
 h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #d81b60;
+    margin-bottom: 1rem;
 }
 
 .año {
-    margin: 2rem 0;
-    padding: 1rem;
-    border-radius: 15px;
-    background-color: #ffe0ec;
-    box-shadow: 0 0 10px #f48fb1;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #ffe0ec;
+    box-shadow: 0 0 10px #f48fb1;
 }
 
 .materia {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border: 2px solid #f06292;
-    border-radius: 10px;
-    background-color: #fff;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 2px solid #f06292;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 .materia h3 {
-    margin-top: 0;
+    margin-top: 0;
+    color: #c2185b;
 }
 
-.notas input {
-    width: 60px;
-    margin-right: 0.5rem;
+.notas {
+    margin-top: 0.5rem;
+}
+
+.notas-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.notas-row label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 4px;
+    border: 1px solid #f48fb1;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .tp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tp-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tp-item input {
+    width: 50px;
+    padding: 4px;
+    text-align: center;
+}
+
+.tp-item button {
+    margin-left: 5px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 button {
-    background-color: #f48fb1;
-    border: none;
-    padding: 0.4rem 1rem;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 0.5rem;
+    background-color: #f48fb1;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #ec407a;
+    background-color: #ec407a;
+}
+
+.promedio-tp {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+select {
+    border: 1px solid #f48fb1;
+    border-radius: 5px;
+    padding: 4px;
 }
