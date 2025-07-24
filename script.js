@@ -135,6 +135,9 @@ function guardarNotas() {
     document.querySelectorAll("input").forEach(input => {
         datos[input.dataset.id + "-" + input.dataset.type] = input.value;
     });
+    document.querySelectorAll("select").forEach(select => {
+        datos[select.dataset.id + "-" + select.dataset.type] = select.value;
+    });
     document.querySelectorAll(".tp-grid").forEach(grid => {
         const id = grid.id.replace("tp-grid-", "");
         datos[id + "-tp"] = Array.from(grid.querySelectorAll("input")).map(i => i.value);
