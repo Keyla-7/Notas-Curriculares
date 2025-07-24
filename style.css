@@ -1,0 +1,60 @@
+body {
+    background-color: #ffc0cb;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.año {
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: #ffe0ec;
+    box-shadow: 0 0 10px #f48fb1;
+}
+
+.materia {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 2px solid #f06292;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.materia h3 {
+    margin-top: 0;
+}
+
+.notas input {
+    width: 60px;
+    margin-right: 0.5rem;
+}
+
+.tp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+button {
+    background-color: #f48fb1;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: #ec407a;
+}
