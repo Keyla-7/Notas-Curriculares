@@ -4,12 +4,14 @@ body {
     color: #333;
     margin: 0;
     padding: 1rem;
+    font-size: 18px; /* ✅ AUMENTA el tamaño de fuente global */
+    text-align: left; /* ✅ Alineación general a la izquierda */
 }
 
 h1 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* ✅ Más grande */
+    margin-bottom: 1.5rem;
 }
 
 .año {
@@ -26,10 +28,12 @@ h1 {
     border: 2px solid #f06292;
     border-radius: 10px;
     background-color: #fff;
+    text-align: left; /* ✅ Para que no se centre dentro de cada materia */
 }
 
 .materia h3 {
     margin-top: 0;
+    font-size: 1.3rem; /* ✅ Más grande */
 }
 
 .notas {
@@ -38,7 +42,7 @@ h1 {
     gap: 1rem;
     align-items: flex-start;
     margin-top: 0.5rem;
-    justify-content: flex-start; /* alineado a la izquierda */
+    justify-content: flex-start; /* ✅ Alineado a la izquierda */
 }
 
 .notas label {
@@ -47,8 +51,16 @@ h1 {
     align-items: flex-start;
     gap: 0.2rem;
     font-weight: bold;
-    min-width: 120px;
+    min-width: 150px;
     text-align: left;
+    font-size: 1.1rem; /* ✅ Más grande */
+}
+
+.notas input,
+.notas select {
+    font-size: 1rem; /* ✅ Inputs y selects más grandes */
+    padding: 0.3rem;
+    width: 100%;
 }
 
 .tp-grid {
@@ -58,23 +70,20 @@ h1 {
     margin-top: 0.5rem;
 }
 
-.fila-final {
+.tp-grid input {
+    font-size: 1rem;
+    padding: 0.3rem;
+}
+
+.fila-final,
+.tp-actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-top: 0.5rem;
-    justify-content: flex-start; /* alineado a la izquierda */
+    justify-content: flex-start;
     text-align: left;
-}
-
-.tp-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     margin-top: 0.5rem;
-    justify-content: flex-start; /* alineado a la izquierda */
-    text-align: left;
 }
 
 button {
