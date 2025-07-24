@@ -66,18 +66,39 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
     contenedor.appendChild(bloque);
 });
 
-function agregarTP(id) {
-    const grid = document.getElementById(`tp-grid-${id}`);
-    const input = document.createElement("input");
-    input.type = "number";
-    input.min = "0";
-    input.max = "100";
-    input.addEventListener("input", () => {
-        guardarNotas();
-        calcularPromedioTP(id);
-    });
-    grid.appendChild(input);
-    guardarNotas();
+function agregarTP(id, valorInicial = "") {
+    const grid = document.getElementById(`tp-grid-${id}`);
+    const contenedorTP = document.createElement("div");
+    contenedorTP.className = "tp-item";
+    contenedorTP.style.display = "flex";
+    contenedorTP.style.alignItems = "center";
+
+    const input = document.createElement("input");
+    input.type = "number";
+    input.min = "0";
+    input.max = "100";
+    input.value = valorInicial;
+    input.addEventListener("input", () => {
+        guardarNotas();
+        calcularPromedioTP(id);
+    });
+
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "🗑️";
+    btnEliminar.style.marginLeft = "5px";
+    btnEliminar.style.background = "transparent";
+    btnEliminar.style.border = "none";
+    btnEliminar.style.cursor = "pointer";
+    btnEliminar.addEventListener("click", () => {
+        contenedorTP.remove();
+        guardarNotas();
+        calcularPromedioTP(id);
+    });
+
+    contenedorTP.appendChild(input);
+    contenedorTP.appendChild(btnEliminar);
+    grid.appendChild(contenedorTP);
+    guardarNotas();
 }
 
 function calcularPromedioTP(id) {
@@ -107,24 +128,13 @@ function cargarNotas() {
         if (valor !== undefined) input.value = valor;
     });
     Object.keys(datos).forEach(key => {
-        if (key.endsWith("-tp")) {
-            const id = key.replace("-tp", "");
-            const grid = document.getElementById(`tp-grid-${id}`);
-            datos[key].forEach(valor => {
-                const input = document.createElement("input");
-                input.type = "number";
-                input.min = "0";
-                input.max = "100";
-                input.value = valor;
-                input.addEventListener("input", () => {
-                    guardarNotas();
-                    calcularPromedioTP(id);
-                });
-                grid.appendChild(input);
-            });
-            calcularPromedioTP(id);
-        }
-    });
+    if (key.endsWith("-tp")) {
+        const id = key.replace("-tp", "");
+        datos[key].forEach(valor => {
+            agregarTP(id, valor);
+        });
+    }
+});
 }
 
 window.addEventListener("load", cargarNotas);
