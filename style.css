@@ -86,3 +86,19 @@ button {
 button:hover {
     background-color: #ec407a;
 }
+
+/* 🎯 NUEVO: Alineación izquierda de notas y TP */
+.materia .notas {
+    justify-content: flex-start;
+}
+
+.materia .notas label {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.fila-final,
+.tp-actions {
+    justify-content: flex-start;
+    text-align: left;
+}
