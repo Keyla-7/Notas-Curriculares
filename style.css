@@ -29,24 +29,7 @@ h1 {
 }
 
 .materia h3 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     margin-top: 0;
-}
-
-.notas {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    margin-top: 0.5rem;
-}
-
-.notas-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
 }
 
 .notas input {
@@ -54,29 +37,11 @@ h1 {
     margin-right: 0.5rem;
 }
 
-.notas label {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-weight: bold;
-}
-
-.select-promociona {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
 .tp-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 0.5rem;
     margin-top: 0.5rem;
-}
-
-.promedio-tp {
-    margin-top: 0.5rem;
-    font-style: italic;
 }
 
 button {
@@ -92,4 +57,36 @@ button {
 
 button:hover {
     background-color: #ec407a;
+}
+.notas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.notas label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: bold;
+}
+
+.select-promociona {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.materia h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+}
+
+.promedio-tp {
+    margin-top: 0.5rem;
+    font-style: italic;
 }
