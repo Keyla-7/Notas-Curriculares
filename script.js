@@ -58,12 +58,12 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
   <select data-type="promociona" data-id="${id}" id="promo-${id}" onchange="marcarPromocion('${id}')">
     <option value="">-</option>
     <option value="si">Sí</option>
-    <option value="no">No</option>
-         </select>
-      </label>
+    <option value="no">No</option
+    </select>
+    </label>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
 
                 <br>
                 <strong>Trabajos Prácticos:</strong>
