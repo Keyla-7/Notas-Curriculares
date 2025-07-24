@@ -40,33 +40,32 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
     const bloque = document.createElement("div");
     bloque.className = "año";
     bloque.innerHTML = `<h2>🎓 ${anio}</h2>`;
-
+    
     materias.forEach((nombre) => {
-        const id = `${anio}-${nombre}`.replace(/\s+/g, "-");
+        const id = `${anio}-${nombre}`.replace(/\\s+/g, "-");
 
         const materia = document.createElement("div");
         materia.className = "materia";
         materia.innerHTML = `
             <h3>📌 ${nombre}</h3>
             <div class="notas">
-                <div class="notas-row">
-                    <label>Parcial 1: <input type="number" min="0" max="100" data-type="parcial1" data-id="${id}"></label>
-                    <label>Parcial 2: <input type="number" min="0" max="100" data-type="parcial2" data-id="${id}"></label>
-                    <label>Final: 
-                        <input type="number" min="0" max="100" data-type="final" data-id="${id}" id="final-${id}">
-                    </label>
-                    <label class="select-promociona">Promociona:
-                        <select data-type="promociona" data-id="${id}" id="promo-${id}" onchange="marcarPromocion('${id}')">
-                            <option value="">-</option>
-                            <option value="si">Sí</option>
-                            <option value="no">No</option>
-                        </select>
-                    </label>
-                </div>
+                <label>Parcial 1: <input type="number" min="0" max="100" data-type="parcial1" data-id="${id}"></label>
+                <label>Parcial 2: <input type="number" min="0" max="100" data-type="parcial2" data-id="${id}"></label>
+                <label>Final: 
+  <input type="number" min="0" max="100" data-type="final" data-id="${id}" id="final-${id}">
+</label>
+<label>Promociona:
+  <select data-type="promociona" data-id="${id}" id="promo-${id}" onchange="marcarPromocion('${id}')">
+    <option value="">-</option>
+    <option value="si">Sí</option>
+    <option value="no">No</option>
+  </select>
+</label>
+                <br>
                 <strong>Trabajos Prácticos:</strong>
                 <div class="tp-grid" id="tp-grid-${id}"></div>
                 <button onclick="agregarTP('${id}')">➕ Agregar TP</button>
-                <p class="promedio-tp">Promedio TP: <span id="promedio-${id}">-</span></p>
+                <p>Promedio TP: <span id="promedio-${id}">-</span></p>
             </div>
         `;
 
@@ -186,4 +185,3 @@ function cargarNotas() {
 }
 
 window.addEventListener("load", cargarNotas);
-                                       
