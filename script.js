@@ -51,7 +51,8 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
             <div class="notas">
                 <label>Parcial 1: <input type="number" min="0" max="100" data-type="parcial1" data-id="${id}"></label>
                 <label>Parcial 2: <input type="number" min="0" max="100" data-type="parcial2" data-id="${id}"></label>
-                <label>Final: 
+      <div class="fila-final">       
+                <label>Final: 
   <input type="number" min="0" max="100" data-type="final" data-id="${id}" id="final-${id}">
 </label>
 <label>Promociona:
