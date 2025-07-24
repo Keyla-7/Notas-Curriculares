@@ -150,10 +150,16 @@ function cargarNotas() {
     document.querySelectorAll("input").forEach(input => {
         const valor = datos[input.dataset.id + "-" + input.dataset.type];
         if (valor !== undefined) input.value = valor;
-        if (input.dataset.type === "promociona") {
-    marcarPromocion(input.dataset.id);
-        }
-    });
+    document.querySelectorAll("select").forEach(select => {
+    const valor = datos[select.dataset.id + "-" + select.dataset.type];
+    if (valor !== undefined) {
+        select.value = valor;
+        if (select.dataset.type === "promociona") {
+            marcarPromocion(select.dataset.id);
+        }
+    }
+});
+        
     Object.keys(datos).forEach(key => {
     if (key.endsWith("-tp")) {
         const id = key.replace("-tp", "");
