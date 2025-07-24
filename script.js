@@ -103,7 +103,14 @@ function agregarTP(id, valorInicial = "") {
         guardarNotas();
         calcularPromedioTP(id);
     });
-    function marcarPromocion(id) {
+
+    contenedorTP.appendChild(input);
+    contenedorTP.appendChild(btnEliminar);
+    grid.appendChild(contenedorTP);
+    guardarNotas();
+}
+
+function marcarPromocion(id) {
     const select = document.getElementById(`promo-${id}`);
     const inputFinal = document.getElementById(`final-${id}`);
     if (select.value === "si") {
@@ -113,12 +120,6 @@ function agregarTP(id, valorInicial = "") {
         inputFinal.style.textDecoration = "none";
         inputFinal.disabled = false;
     }
-    guardarNotas();
-    }
-
-    contenedorTP.appendChild(input);
-    contenedorTP.appendChild(btnEliminar);
-    grid.appendChild(contenedorTP);
     guardarNotas();
 }
 
@@ -132,32 +133,56 @@ function calcularPromedioTP(id) {
 
 function guardarNotas() {
     const datos = {};
+
+    // Guardar inputs
     document.querySelectorAll("input").forEach(input => {
         datos[input.dataset.id + "-" + input.dataset.type] = input.value;
     });
+
+    // Guardar selects
+    document.querySelectorAll("select").forEach(select => {
+        datos[select.dataset.id + "-" + select.dataset.type] = select.value;
+    });
+
+    // Guardar TPs
     document.querySelectorAll(".tp-grid").forEach(grid => {
         const id = grid.id.replace("tp-grid-", "");
         datos[id + "-tp"] = Array.from(grid.querySelectorAll("input")).map(i => i.value);
     });
+
     localStorage.setItem("notasEnfermeria", JSON.stringify(datos));
 }
 
 function cargarNotas() {
     const datos = JSON.parse(localStorage.getItem("notasEnfermeria") || "{}");
+
+    // Cargar inputs
     document.querySelectorAll("input").forEach(input => {
         const valor = datos[input.dataset.id + "-" + input.dataset.type];
         if (valor !== undefined) input.value = valor;
+    });
+
+    // Cargar selects (como "promociona")
+    document.querySelectorAll("select").forEach(select => {
+        const valor = datos[select.dataset.id + "-" + select.dataset.type];
+        if (valor !== undefined) {
+            select.value = valor;
+            if (select.dataset.type === "promociona") {
+                marcarPromocion(select.dataset.id);
+            }
         }
     });
+
+    // Cargar trabajos prácticos
     Object.keys(datos).forEach(key => {
-    if (key.endsWith("-tp")) {
-        const id = key.replace("-tp", "");
-        datos[key].forEach(valor => {
-            agregarTP(id, valor);
-        });
-    }
-});
+        if (key.endsWith("-tp")) {
+            const id = key.replace("-tp", "");
+            datos[key].forEach(valor => {
+                agregarTP(id, valor);
+            });
+        }
+    });
 }
 
 window.addEventListener("load", cargarNotas);
-      
+                                                     
