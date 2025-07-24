@@ -63,11 +63,12 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
 </label>
                 <br>
                 <strong>Trabajos Prácticos:</strong>
-                <div class="tp-grid" id="tp-grid-${id}"></div>
-                <button onclick="agregarTP('${id}')">➕ Agregar TP</button>
-                <p>Promedio TP: <span id="promedio-${id}">-</span></p>
-            </div>
-        `;
+        <div class="tp-bloque">
+        <div class="tp-grid" id="tp-grid-${id}"></div>
+        <button onclick="agregarTP('${id}')">➕ Agregar TP</button>
+        <p>Promedio TP: <span id="promedio-${id}">-</span></p>
+    </div>
+`;
 
         bloque.appendChild(materia);
     });
