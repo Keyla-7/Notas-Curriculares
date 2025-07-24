@@ -50,16 +50,16 @@ Object.entries(materiasPorAnio).forEach(([anio, materias]) => {
             <h3>📌 ${nombre}</h3>
             <div class="notas">
                 <label>Parcial 1: <input type="number" min="0" max="100" data-type="parcial1" data-id="${id}"></label>
-                <label>Parcial 2: <input type="number" min="0" max="100" data-type="parcial2" data-id="${id}"></label>    
-                <label>Final: 
+                <label>Parcial 2: <input type="number" min="0" max="100" data-type="parcial2" data-id="${id}"></label>
+                <label>Final: 
   <input type="number" min="0" max="100" data-type="final" data-id="${id}" id="final-${id}">
 </label>
 <label>Promociona:
   <select data-type="promociona" data-id="${id}" id="promo-${id}" onchange="marcarPromocion('${id}')">
     <option value="">-</option>
     <option value="si">Sí</option>
-    <option value="no">No</option
-      </select>
+    <option value="no">No</option>
+  </select>
 </label>
                 <br>
                 <strong>Trabajos Prácticos:</strong>
